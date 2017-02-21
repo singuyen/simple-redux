@@ -1,6 +1,6 @@
 # QTAS Example
 
-A small project with `react-redux` and `react-router`
+A small project with `react-redux` and `react-router`, integrate with local JSON
 
 ## Available Scripts
 

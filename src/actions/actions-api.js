@@ -1,6 +1,8 @@
 import fetch from 'isomorphic-fetch'
 import filter from 'lodash/filter'
 
+import { API_HOST } from '../constants/constants'
+
 export const INVALIDATE_FILE = 'INVALIDATE_FILE'
 export const SELECT_FILE = 'SELECT_FILE'
 export const SELECT_MAKE = 'SELECT_MAKE'
@@ -47,7 +49,7 @@ function receiveAPI(file, json) {
 function fetchAPI(file) {
   return dispatch => {
     dispatch(requestAPI(file))
-    return fetch('http://localhost:3000/data/' + file)
+    return fetch(API_HOST + file)
       .then(response => response.json())
       .then(json => dispatch(receiveAPI(file, json)))
   }
@@ -56,7 +58,7 @@ function fetchAPI(file) {
 function fetchModelsByMakeId(file, makeId = null) {
   return dispatch => {
     dispatch(requestAPI(file))
-    return fetch('http://localhost:3000/data/' + file)
+    return fetch(API_HOST + file)
       .then(response => response.json())
       .then((json) => {      
         dispatch(receiveAPI(file, filter(json, {'makeId': makeId})))
@@ -67,7 +69,7 @@ function fetchModelsByMakeId(file, makeId = null) {
 function fetchModelByModelId(file, modelId = null) {
   return dispatch => {
     dispatch(requestAPI(file))
-    return fetch('http://localhost:3000/data/' + file)
+    return fetch(API_HOST + file)
       .then(response => response.json())
       .then((json) => {      
         dispatch(receiveAPI(file, filter(json, {'id': modelId})))
