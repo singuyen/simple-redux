@@ -1,4 +1,4 @@
-# QTAS Example
+# Simple React/Redux
 
 A small project with `react-redux` and `react-router`, integrate with local JSON
 
